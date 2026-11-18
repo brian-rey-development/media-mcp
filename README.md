@@ -22,12 +22,12 @@ claude mcp add media -- node "<abs path>/apps/server/dist/index.js"
 
 ## Tools
 
-| Tool                   | Purpose                                                                                    | Main inputs                                                       |
-| ---------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| `get_transcripts`      | Transcripts for one video, many videos or a playlist                                       | `urls`, `language` (default `en`), `timestamps` (default false)   |
-| `get_video_info`       | Title, channel, duration, chapters and caption languages                                   | `urls`, `includeDescription`                                      |
-| `download_media`       | Video as mp4 or audio as m4a, saved under the output folder                                | `urls`, `kind`, `quality` (default `1080p`), `outputDir`          |
-| `read_transcript_file` | One page of a transcript saved to a file, for clients that cannot open files on the server | `path`, `startLine`, `maxLines`                                   |
+| Tool                   | Purpose                                                                                    | Main inputs                                                     |
+| ---------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
+| `get_transcripts`      | Transcripts for one video, many videos or a playlist                                       | `urls`, `language` (default `en`), `timestamps` (default false) |
+| `get_video_info`       | Title, channel, duration, chapters and caption languages                                   | `urls`, `includeDescription`                                    |
+| `download_media`       | Video as mp4 or audio as m4a, saved under the output folder                                | `urls`, `kind`, `quality` (default `1080p`), `outputDir`        |
+| `read_transcript_file` | One page of a transcript saved to a file, for clients that cannot open files on the server | `path`, `startLine`, `maxLines`                                 |
 
 - Batch tools take 1 to 50 links plus `maxItems` and `startIndex` to page through playlists. Anything cut off is reported under `truncations`.
 - Each entry is marked ok or failed, and a failure carries an error code, a message and a hint. A failure never stops the other entries.
@@ -38,23 +38,23 @@ claude mcp add media -- node "<abs path>/apps/server/dist/index.js"
 
 Environment variables, read once at startup. Empty counts as unset, and a bad value stops the server with a readable message.
 
-| Variable                        | Default                  | Meaning                                                     |
-| ------------------------------- | ------------------------ | ----------------------------------------------------------- |
-| `MEDIA_MCP_YTDLP_PATH`          | `yt-dlp`                 | yt-dlp binary, use an absolute path when PATH is minimal    |
-| `MEDIA_MCP_OUTPUT_DIR`          | `~/Downloads/media-mcp`  | Root for downloads and saved transcripts                    |
-| `MEDIA_MCP_CACHE_DIR`           | OS cache folder          | Disk cache for transcripts and info                         |
-| `MEDIA_MCP_CONCURRENCY`         | `4`                      | Parallel yt-dlp processes (1 to 16), downloads use their own pool of 2 |
-| `MEDIA_MCP_CHAR_BUDGET`         | `20000`                  | Transcript characters returned inline per call              |
-| `MEDIA_MCP_PROCESS_TIMEOUT_MS`  | `120000`                 | Limit for one yt-dlp call that is not a download            |
-| `MEDIA_MCP_DOWNLOAD_TIMEOUT_MS` | `1800000`                | Limit for one download                                      |
-| `MEDIA_MCP_MAX_DOWNLOAD_BYTES`  | `2147483648`             | Largest file one download may produce                       |
-| `MEDIA_MCP_INFO_TTL_MS`         | `86400000`               | Cached info lifetime                                        |
-| `MEDIA_MCP_TRANSCRIPT_TTL_DAYS` | `30`                     | Cached transcript lifetime, automatic captions 7 days       |
-| `MEDIA_MCP_TRANSPORT`           | `stdio`                  | `stdio` or `http`                                           |
-| `MEDIA_MCP_HTTP_TOKEN`          | none                     | Required for `http`, at least 16 characters                 |
-| `MEDIA_MCP_HTTP_HOST`           | `127.0.0.1`              | Bind address                                                |
-| `MEDIA_MCP_HTTP_PORT`           | `8787`                   | Port                                                        |
-| `MEDIA_MCP_HTTP_ALLOWED_HOSTS`  | none                     | Extra `Host` values to accept, for example a tunnel hostname |
+| Variable                        | Default                 | Meaning                                                                |
+| ------------------------------- | ----------------------- | ---------------------------------------------------------------------- |
+| `MEDIA_MCP_YTDLP_PATH`          | `yt-dlp`                | yt-dlp binary, use an absolute path when PATH is minimal               |
+| `MEDIA_MCP_OUTPUT_DIR`          | `~/Downloads/media-mcp` | Root for downloads and saved transcripts                               |
+| `MEDIA_MCP_CACHE_DIR`           | OS cache folder         | Disk cache for transcripts and info                                    |
+| `MEDIA_MCP_CONCURRENCY`         | `4`                     | Parallel yt-dlp processes (1 to 16), downloads use their own pool of 2 |
+| `MEDIA_MCP_CHAR_BUDGET`         | `20000`                 | Transcript characters returned inline per call                         |
+| `MEDIA_MCP_PROCESS_TIMEOUT_MS`  | `120000`                | Limit for one yt-dlp call that is not a download                       |
+| `MEDIA_MCP_DOWNLOAD_TIMEOUT_MS` | `1800000`               | Limit for one download                                                 |
+| `MEDIA_MCP_MAX_DOWNLOAD_BYTES`  | `2147483648`            | Largest file one download may produce                                  |
+| `MEDIA_MCP_INFO_TTL_MS`         | `86400000`              | Cached info lifetime                                                   |
+| `MEDIA_MCP_TRANSCRIPT_TTL_DAYS` | `30`                    | Cached transcript lifetime, automatic captions 7 days                  |
+| `MEDIA_MCP_TRANSPORT`           | `stdio`                 | `stdio` or `http`                                                      |
+| `MEDIA_MCP_HTTP_TOKEN`          | none                    | Required for `http`, at least 16 characters                            |
+| `MEDIA_MCP_HTTP_HOST`           | `127.0.0.1`             | Bind address                                                           |
+| `MEDIA_MCP_HTTP_PORT`           | `8787`                  | Port                                                                   |
+| `MEDIA_MCP_HTTP_ALLOWED_HOSTS`  | none                    | Extra `Host` values to accept, for example a tunnel hostname           |
 
 ## Remote access
 
