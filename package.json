@@ -1,0 +1,26 @@
+{
+  "name": "media-mcp",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.15.0",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "lint": "biome check . && pnpm check:function-length",
+    "typecheck": "tsc && pnpm -r typecheck",
+    "build": "pnpm -r build",
+    "test": "vitest run",
+    "knip": "knip",
+    "check:function-length": "node scripts/check-function-length.ts",
+    "check": "pnpm lint && pnpm typecheck && pnpm build && pnpm test && pnpm knip"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@types/node": "catalog:",
+    "knip": "catalog:",
+    "oxc-parser": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
