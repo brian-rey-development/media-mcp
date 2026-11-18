@@ -1,0 +1,19 @@
+{
+  "name": "@media-mcp/core",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.1.0"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "execa": "catalog:",
+    "p-limit": "catalog:",
+    "zod": "catalog:"
+  }
+}

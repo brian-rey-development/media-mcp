@@ -1,0 +1,32 @@
+{
+  "_type": "playlist",
+  "id": "PLa1F2ddGya_84ye1JAvIGh0Yp7utEKZI_",
+  "title": "Blender Conference 2023",
+  "playlist_count": 93,
+  "entries": [
+    {
+      "id": "0P-hQNzDSk8",
+      "title": "Blender Conference 2023 Keynote",
+      "url": "https://www.youtube.com/watch?v=0P-hQNzDSk8",
+      "duration": 1564
+    },
+    {
+      "id": "yMc-nxw_2Ew",
+      "title": "Adding more art into the .blend...",
+      "url": "https://www.youtube.com/watch?v=yMc-nxw_2Ew",
+      "duration": 1103
+    },
+    {
+      "id": "xhpaadUj2RA",
+      "title": "Polyperfect: creating assets for a living",
+      "url": "https://www.youtube.com/watch?v=xhpaadUj2RA",
+      "duration": 951
+    },
+    {
+      "id": "BbKcaszfXNA",
+      "title": "Developing an add-on with UX in mind",
+      "url": "https://www.youtube.com/watch?v=BbKcaszfXNA",
+      "duration": 3007
+    }
+  ]
+}
